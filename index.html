@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+<title>Oli & Lucy · Wedding Timeline · 18 July 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --rose:#c97b84;--mauve:#b07bbf;--sage:#6bab8a;--slate:#6e9ec5;--gold:#c8a86b;--plum:#a89bb0;
+  --bg:linear-gradient(160deg,#fdf6f0 0%,#f9f0f8 45%,#f0f4fd 100%);
+  --card:#fffdf9;--border:#e8d0e8;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{min-height:100vh;background:var(--bg);font-family:"Cormorant Garamond",Georgia,serif;
+  color:#4a3848;overflow-x:hidden;position:relative}
+body::before{content:"";position:fixed;inset:0;
+  background:radial-gradient(circle at 15% 15%,#f7c8d418 0%,transparent 45%),
+             radial-gradient(circle at 85% 80%,#c8d4f718 0%,transparent 45%);
+  pointer-events:none;z-index:0}
+.wrap{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:0 16px 80px}
+
+/* ── Floral corners ── */
+.floral{position:fixed;width:100px;height:100px;opacity:.45;pointer-events:none;z-index:0}
+.floral.tl{top:0;left:0}.floral.tr{top:0;right:0;transform:scaleX(-1)}
+.floral.bl{bottom:0;left:0;transform:scaleY(-1)}.floral.br{bottom:0;right:0;transform:scale(-1,-1)}
+
+/* ── Toast ── */
+#toast{position:fixed;top:16px;left:50%;transform:translateX(-50%) translateY(-80px);
+  padding:10px 22px;border-radius:50px;border:1px solid;font-size:13px;
+  font-family:"Jost",sans-serif;z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,.08);
+  white-space:nowrap;transition:transform .3s ease;pointer-events:none}
+#toast.show{transform:translateX(-50%) translateY(0)}
+#toast.ok{background:#e4fded;color:#2d6b45;border-color:#b8dfc8}
+#toast.err{background:#fde4e4;color:#b03030;border-color:#f0b8b8}
+
+/* ── Guest banner ── */
+.guest-banner{display:flex;justify-content:space-between;align-items:center;
+  background:linear-gradient(135deg,#fdf0f8,#f0f0ff);border:1.5px solid var(--border);
+  border-radius:13px;padding:10px 14px;margin-top:16px;display:none}
+.guest-banner.visible{display:flex}
+.guest-banner-info{display:flex;align-items:center;gap:8px;font-family:"Jost",sans-serif}
+.guest-banner-info strong{font-size:13px;color:#7a5878}
+.guest-banner-info span{font-size:11px;color:#b090a8}
+
+/* ── Header ── */
+header{text-align:center;padding:40px 0 16px}
+.flourish{color:#c8a8b8;letter-spacing:10px;font-size:13px;margin-bottom:10px;font-family:"Jost",sans-serif}
+.header-sub{color:#b8a0a8;font-style:italic;font-size:15px;margin-bottom:6px;letter-spacing:1.5px}
+h1.couple{font-size:clamp(32px,9vw,64px);color:#6b4e5a;font-weight:300;letter-spacing:3px;margin-bottom:8px}
+.header-date{color:#9a8490;font-size:14px;letter-spacing:1.5px;font-style:italic;margin-bottom:16px}
+.countdown{display:inline-flex;align-items:baseline;gap:5px;background:#fff8fa;
+  border:1px solid #f0d0da;border-radius:50px;padding:6px 18px;margin-top:4px}
+.countdown .num{font-size:26px;font-weight:600;color:var(--rose);font-family:"Jost",sans-serif}
+.countdown .lbl{font-size:12px;color:#b89090;font-family:"Jost",sans-serif;letter-spacing:1px}
+.guest-welcome{max-width:400px;margin:14px auto 0;font-size:14px;color:#9a7888;font-style:italic;line-height:1.7}
+
+/* ── Organiser bar ── */
+.org-bar{background:linear-gradient(135deg,#fff8fa,#f8f0ff);border:1.5px solid var(--border);
+  border-radius:15px;padding:16px 16px;margin-top:22px;margin-bottom:8px;
+  box-shadow:0 4px 18px rgba(200,168,200,.06)}
+.org-bar-label{font-size:11px;letter-spacing:2px;color:#a080a0;text-transform:uppercase;
+  font-family:"Jost",sans-serif;margin-bottom:10px}
+.org-actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+
+/* ── Buttons ── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:5px;
+  border:none;border-radius:50px;cursor:pointer;font-family:"Jost",sans-serif;
+  font-weight:500;transition:opacity .15s;-webkit-tap-highlight-color:transparent;
+  touch-action:manipulation}
+.btn:active{opacity:.75}
+.btn-primary{background:linear-gradient(135deg,var(--rose),var(--mauve));color:#fff;
+  padding:10px 20px;font-size:13px;box-shadow:0 2px 10px rgba(201,123,132,.3)}
+.btn-ghost{background:transparent;border:1.5px solid #d0c0d8;color:#9080a0;padding:8px 14px;font-size:12px}
+.btn-green{background:linear-gradient(135deg,var(--sage),#5a9a7a);color:#fff;
+  padding:8px 14px;font-size:12px;box-shadow:0 2px 8px rgba(107,171,138,.3)}
+.btn-sm{padding:7px 12px;font-size:12px;border:1px solid #d0c0e0;background:transparent;color:#9070a0}
+.btn-danger{background:#fde4e4;border:1.5px solid #e09090;color:#c07070;
+  padding:12px 16px;font-size:14px;font-weight:600;border-radius:10px;
+  width:100%;text-align:center;margin-bottom:14px;display:block}
+.btn-add{background:linear-gradient(135deg,var(--rose),var(--mauve));color:#fff;
+  padding:8px 16px;font-size:12px;font-weight:600;border-radius:50px;
+  box-shadow:0 2px 6px rgba(201,123,132,.25)}
+.btn-admin{padding:8px 14px;border-radius:50px;border:1.5px solid var(--rose);
+  background:transparent;color:var(--rose);font-size:12px;font-weight:500}
+
+/* ── Tabs ── */
+.tabs-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:20px;margin-bottom:14px;padding-bottom:4px}
+.tabs{display:flex;gap:7px;min-width:max-content}
+.tab{padding:10px 14px;border-radius:11px;border:1.5px solid #e8d8e8;background:#fffafc;
+  cursor:pointer;text-align:center;font-family:"Jost",sans-serif;white-space:nowrap;
+  -webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.tab:active{opacity:.8}
+.tab .tab-label{display:block;font-weight:600;color:#8a7a88;font-size:13px}
+.tab .tab-sub{display:block;color:#b090a0;font-size:10px;margin-top:2px}
+.tab.active{background:linear-gradient(135deg,#fde8ec,#f0e0ff);border-color:var(--rose);
+  box-shadow:0 2px 10px rgba(201,123,132,.12)}
+.tab.active .tab-label{color:#6b4e5a}
+
+/* ── Filters ── */
+.filters{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}
+.filter-pill{display:flex;align-items:center;gap:5px;padding:6px 13px;border-radius:50px;
+  border:1.5px solid;font-size:12px;cursor:pointer;font-family:"Jost",sans-serif;
+  -webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.filter-pill:active{opacity:.8}
+.filter-dot{width:6px;height:6px;border-radius:50%;display:inline-block;flex-shrink:0}
+
+/* ── Count row ── */
+.count-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.event-count{font-size:12px;color:#b0a0a8;font-family:"Jost",sans-serif}
+
+/* ── Week banner ── */
+.week-banner{display:flex;gap:10px;align-items:flex-start;background:#fdf6ec;
+  border:1.5px solid #e8d8b8;border-radius:12px;padding:12px 14px;margin-bottom:14px;
+  font-family:"Jost",sans-serif}
+.week-banner strong{display:block;font-size:13px;color:#8a6a30;margin-bottom:2px}
+.week-banner span{font-size:12px;color:#a08858}
+
+/* ── Day sub-header ── */
+.day-header{display:flex;align-items:center;justify-content:space-between;
+  background:linear-gradient(135deg,#fdf0f8,#f8f0ff);border:1.5px solid var(--border);
+  border-radius:10px;padding:9px 14px;margin:16px 0 8px;font-family:"Jost",sans-serif}
+.day-header .dh-label{font-weight:600;font-size:14px;color:#6b4e5a}
+.day-header .dh-date{font-size:12px;color:#b090a0;margin-left:8px}
+.day-header .dh-count{font-size:11px;color:#c0a8b8;background:#fff;border:1px solid var(--border);
+  border-radius:50px;padding:2px 10px}
+
+/* ── Section header (All view) ── */
+.section-header{display:flex;align-items:center;gap:12px;margin:24px 0 12px;
+  padding-bottom:8px;border-bottom:2px solid rgba(201,123,132,.12)}
+.section-bar{width:4px;height:32px;border-radius:2px;flex-shrink:0}
+.section-title{font-family:"Cormorant Garamond",serif;font-size:17px;color:#5a4050;font-weight:400}
+.section-sub{font-family:"Jost",sans-serif;font-size:11px;color:#b090a0;margin-top:1px;letter-spacing:.5px}
+.week-day-sub{display:flex;align-items:center;gap:8px;margin:10px 0 6px;padding-left:4px}
+.week-day-sub .wds-bar{width:3px;height:18px;border-radius:2px;background:#e8d0e8;flex-shrink:0}
+.week-day-sub span{font-family:"Jost",sans-serif;font-size:12px;font-weight:600;color:#9a7888}
+
+/* ── Timeline row ── */
+.tl-row{display:flex;align-items:flex-start;min-height:52px}
+.time-col{width:70px;flex-shrink:0;text-align:right;padding:8px 11px 0 0;font-family:"Jost",sans-serif}
+.time-start{display:block;font-size:12px;font-weight:600;color:#8a7080}
+.time-end{display:block;font-size:10px;color:#c0b0b8}
+.connector{width:20px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;padding-top:10px}
+.tl-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;z-index:1}
+.tl-line{width:2px;flex:1;min-height:18px;background:linear-gradient(to bottom,rgba(224,208,224,.13),rgba(224,208,224,.53));margin-top:3px}
+
+/* ── Event card ── */
+.card{flex:1;border-radius:12px;border-left:3px solid;padding:9px 12px;
+  margin-bottom:9px;margin-left:7px;background:var(--card);
+  box-shadow:0 1px 4px rgba(200,184,168,.09)}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:6px}
+.card-left{flex:1;min-width:0}
+.cat-badge{display:inline-block;font-size:10px;letter-spacing:1px;text-transform:uppercase;
+  padding:1px 7px;border-radius:50px;border:1px solid;margin-bottom:3px;
+  font-family:"Jost",sans-serif}
+.card-title{font-size:14px;color:#4a3848;font-weight:500;line-height:1.3;
+  font-family:"Cormorant Garamond",serif}
+.edit-btn{flex-shrink:0;width:44px;height:44px;border-radius:50%;border:1.5px solid;
+  font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  background:transparent;-webkit-tap-highlight-color:transparent;touch-action:manipulation;
+  margin-top:-4px}
+.edit-btn:active{opacity:.7}
+.card-loc{font-size:11px;color:#9a8898;margin-top:4px;display:flex;align-items:center;gap:3px;
+  font-family:"Jost",sans-serif}
+.card-desc{font-size:12px;color:#9a8898;line-height:1.5;font-style:italic;margin-top:5px}
+.card-pills{display:flex;gap:7px;margin-top:5px;flex-wrap:wrap}
+.dur-pill{font-size:11px;color:#b0a0b0;background:#f0e8f0;padding:1px 7px;border-radius:50px;
+  font-family:"Jost",sans-serif}
+.hidden-pill{font-size:11px;color:var(--gold);background:#fdf6ec;padding:1px 7px;border-radius:50px;
+  font-family:"Jost",sans-serif}
+
+/* ── Empty state ── */
+.empty{text-align:center;color:#c0a8b8;padding:48px 20px;font-style:italic;font-size:15px}
+
+/* ── Modal overlay ── */
+.modal-overlay{position:fixed;inset:0;z-index:500;display:none;
+  align-items:center;justify-content:center;padding:14px}
+.modal-overlay.open{display:flex}
+.modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.32);backdrop-filter:blur(4px)}
+.modal-box{position:relative;z-index:1;background:linear-gradient(135deg,#fffaf8,#f8f0ff);
+  border:1.5px solid var(--border);border-radius:20px;padding:20px 18px;
+  max-width:460px;width:100%;box-shadow:0 20px 50px rgba(200,160,200,.16);
+  max-height:90vh;overflow-y:auto}
+.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.modal-title{font-family:"Cormorant Garamond",serif;font-size:19px;color:#6b4e5a;font-weight:400}
+.modal-close{width:40px;height:40px;border-radius:50%;border:1.5px solid #e0c8e8;
+  background:#fff;color:#9080a0;font-size:16px;cursor:pointer;display:flex;
+  align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent;
+  touch-action:manipulation}
+.modal-close:active{opacity:.7}
+
+/* ── Form fields ── */
+.field-label{display:block;font-size:11px;letter-spacing:1px;text-transform:uppercase;
+  color:#a080a0;font-family:"Jost",sans-serif;margin-bottom:4px;margin-top:12px}
+.field-input{width:100%;padding:9px 11px;border:1.5px solid #e0c8e8;border-radius:9px;
+  font-size:14px;color:#5a4060;font-family:"Jost",sans-serif;outline:none;background:#fff;
+  box-sizing:border-box;-webkit-appearance:none;appearance:none}
+.field-input:focus{border-color:var(--mauve)}
+textarea.field-input{resize:vertical;min-height:64px;font-family:"Jost",sans-serif}
+.field-row{display:flex;gap:10px}
+.field-col{flex:1}
+.field-check{display:flex;align-items:center;gap:10px;margin:12px 0 16px}
+.field-check input{width:20px;height:20px;accent-color:var(--rose);cursor:pointer;flex-shrink:0}
+.field-check label{font-size:14px;color:#7a6878;font-family:"Jost",sans-serif;cursor:pointer}
+
+/* ── Day-of-week pills ── */
+.weekday-pills{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:4px}
+.wd-pill{padding:8px 13px;border-radius:50px;border:1.5px solid #e0c8e8;background:#fff;
+  color:#9070a0;font-size:12px;cursor:pointer;font-family:"Jost",sans-serif;
+  -webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.wd-pill:active{opacity:.7}
+.wd-pill.active{background:linear-gradient(135deg,var(--rose),var(--mauve));
+  border-color:var(--rose);color:#fff;font-weight:600}
+
+/* ── Modal actions ── */
+.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:4px}
+
+/* ── PIN modal ── */
+.pin-input{width:100%;padding:12px;border:1.5px solid #e0c8e8;border-radius:10px;
+  font-size:24px;text-align:center;letter-spacing:12px;outline:none;background:#fff;
+  color:#5a4060;box-sizing:border-box;margin-bottom:8px;-webkit-appearance:none}
+.pin-error{color:#c07070;font-size:13px;font-family:"Jost",sans-serif;
+  text-align:center;margin-bottom:8px;min-height:20px}
+.pin-hint{font-size:11px;color:#c0b0c0;font-family:"Jost",sans-serif;
+  font-style:italic;text-align:center;margin-top:10px}
+.modal-center{text-align:center}
+.modal-flourish{font-size:26px;color:#c8a8b8;margin-bottom:10px}
+.modal-sub{font-family:"Jost",sans-serif;font-size:13px;color:#9a8090;
+  line-height:1.6;margin-bottom:16px}
+
+/* ── Share box ── */
+.share-box{background:#f0e8f8;border-radius:10px;padding:11px 14px;
+  margin:10px 0;word-break:break-all}
+.share-url{font-size:12px;color:#7050a0;font-family:monospace;
+  background:none;border:none;width:100%;resize:none;outline:none;
+  line-height:1.5;min-height:52px}
+
+/* ── Guest CTA ── */
+.guest-cta{text-align:center;background:linear-gradient(135deg,#fdf0f8,#f0eeff);
+  border:1.5px solid var(--border);border-radius:18px;padding:28px 20px;margin:32px 0 16px}
+.guest-cta h4{font-family:"Cormorant Garamond",serif;font-size:20px;color:#6b4e5a;
+  font-weight:400;margin-bottom:8px}
+.guest-cta p{font-family:"Jost",sans-serif;font-size:14px;color:#9a8090;
+  line-height:1.6;max-width:300px;margin:0 auto}
+
+/* ── Footer ── */
+footer{text-align:center;padding-top:36px;border-top:1px dashed #e8d0e8;margin-top:20px}
+footer .f-flourish{color:#c8a8b8;font-size:18px;margin-bottom:8px}
+footer .f-text{color:#b090a0;font-style:italic;font-size:14px;margin-bottom:4px}
+footer .f-sub{color:#c8b0c0;font-size:11px;font-family:"Jost",sans-serif;letter-spacing:1px}
+
+/* ── Responsive ── */
+@media(max-width:480px){
+  .field-row{flex-direction:column;gap:0}
+  .modal-box{padding:16px 14px}
+}
+</style>
+</head>
+<body>
+
+<!-- Floral corners -->
+<svg class="floral tl" viewBox="0 0 100 100" fill="none"><circle cx="10" cy="10" r="4" fill="#f0c4cc" opacity=".5"/><circle cx="22" cy="7" r="3" fill="#d4b8e0" opacity=".4"/><circle cx="7" cy="22" r="3" fill="#b8d4e0" opacity=".4"/><ellipse cx="16" cy="16" rx="11" ry="5" transform="rotate(-45 16 16)" fill="#f7e4e8" opacity=".4"/><ellipse cx="16" cy="16" rx="11" ry="5" transform="rotate(45 16 16)" fill="#e8d4f7" opacity=".3"/><path d="M3 35 Q17 20 30 30 Q20 40 3 35Z" fill="#c8e6d4" opacity=".3"/><path d="M35 3 Q20 17 30 30 Q40 20 35 3Z" fill="#c8e6d4" opacity=".3"/></svg>
+<svg class="floral tr" viewBox="0 0 100 100" fill="none"><circle cx="10" cy="10" r="4" fill="#f0c4cc" opacity=".5"/><circle cx="22" cy="7" r="3" fill="#d4b8e0" opacity=".4"/><circle cx="7" cy="22" r="3" fill="#b8d4e0" opacity=".4"/><ellipse cx="16" cy="16" rx="11" ry="5" transform="rotate(-45 16 16)" fill="#f7e4e8" opacity=".4"/><ellipse cx="16" cy="16" rx="11" ry="5" transform="rotate(45 16 16)" fill="#e8d4f7" opacity=".3"/><path d="M3 35 Q17 20 30 30 Q20 40 3 35Z" fill="#c8e6d4" opacity=".3"/><path d="M35 3 Q20 17 30 30 Q40 20 35 3Z" fill="#c8e6d4" opacity=".3"/></svg>
+<svg class="floral bl" viewBox="0 0 100 100" fill="none"><circle cx="10" cy="10" r="4" fill="#f0c4cc" opacity=".5"/><circle cx="22" cy="7" r="3" fill="#d4b8e0" opacity=".4"/><circle cx="7" cy="22" r="3" fill="#b8d4e0" opacity=".4"/><ellipse cx="16" cy="16" rx="11" ry="5" transform="rotate(-45 16 16)" fill="#f7e4e8" opacity=".4"/><ellipse cx="16" cy="16" rx="11" ry="5" transform="rotate(45 16 16)" fill="#e8d4f7" opacity=".3"/><path d="M3 35 Q17 20 30 30 Q20 40 3 35Z" fill="#c8e6d4" opacity=".3"/><path d="M35 3 Q20 17 30 30 Q40 20 35 3Z" fill="#c8e6d4" opacity=".3"/></svg>
+<svg class="floral br" viewBox="0 0 100 100" fill="none"><circle cx="10" cy="10" r="4" fill="#f0c4cc" opacity=".5"/><circle cx="22" cy="7" r="3" fill="#d4b8e0" opacity=".4"/><circle cx="7" cy="22" r="3" fill="#b8d4e0" opacity=".4"/><ellipse cx="16" cy="16" rx="11" ry="5" transform="rotate(-45 16 16)" fill="#f7e4e8" opacity=".4"/><ellipse cx="16" cy="16" rx="11" ry="5" transform="rotate(45 16 16)" fill="#e8d4f7" opacity=".3"/><path d="M3 35 Q17 20 30 30 Q20 40 3 35Z" fill="#c8e6d4" opacity=".3"/><path d="M35 3 Q20 17 30 30 Q40 20 35 3Z" fill="#c8e6d4" opacity=".3"/></svg>
+
+<div id="toast" class="ok"></div>
+
+<!-- PIN Modal -->
+<div id="pin-modal" class="modal-overlay">
+  <div class="modal-backdrop" id="pin-backdrop"></div>
+  <div class="modal-box modal-center" style="max-width:360px">
+    <div class="modal-flourish">✦</div>
+    <h3 class="modal-title">Organiser Access</h3>
+    <p class="modal-sub">Enter your PIN to edit the timeline.</p>
+    <input type="password" maxlength="6" class="pin-input" id="pin-input" placeholder="2026"/>
+    <div class="pin-error" id="pin-error"></div>
+    <div style="display:flex;gap:10px;justify-content:center">
+      <button class="btn btn-ghost" onclick="closePin()">Cancel</button>
+      <button class="btn btn-primary" onclick="submitPin()">Enter</button>
+    </div>
+    <p class="pin-hint">Hint: the wedding year</p>
+  </div>
+</div>
+
+<!-- Share Modal -->
+<div id="share-modal" class="modal-overlay">
+  <div class="modal-backdrop" onclick="closeShare()"></div>
+  <div class="modal-box modal-center" style="max-width:400px">
+    <div class="modal-flourish">🔗</div>
+    <h3 class="modal-title">Share with Guests</h3>
+    <p class="modal-sub">Read-only view — no editor, no vendor details.</p>
+    <p style="font-family:Jost,sans-serif;font-size:12px;color:#a080a0;margin-bottom:6px">Press and hold to copy on mobile:</p>
+    <div class="share-box">
+      <textarea class="share-url" id="share-url-text" readonly rows="2" onclick="this.select()"></textarea>
+    </div>
+    <div style="display:flex;gap:10px;justify-content:center;margin-top:12px">
+      <button class="btn btn-ghost" onclick="closeShare()">Close</button>
+      <button class="btn btn-primary" onclick="copyShareLink()">Copy Link</button>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Modal -->
+<div id="edit-modal" class="modal-overlay">
+  <div class="modal-backdrop"></div>
+  <div class="modal-box" style="max-width:460px">
+    <div class="modal-header">
+      <h3 class="modal-title">Edit Event</h3>
+      <button class="modal-close" onclick="closeEdit()">✕</button>
+    </div>
+
+    <!-- DELETE — top of form, always visible, direct call -->
+    <button class="btn-danger" id="delete-btn" onclick="deleteCurrentEvent()">
+      🗑 Delete this event
+    </button>
+
+    <input type="hidden" id="edit-id"/>
+    <label class="field-label">Title</label>
+    <input class="field-input" id="edit-title" type="text"/>
+
+    <div class="field-row">
+      <div class="field-col">
+        <label class="field-label">Start time</label>
+        <input class="field-input" id="edit-time" type="time"/>
+      </div>
+      <div class="field-col">
+        <label class="field-label">Duration (mins)</label>
+        <input class="field-input" id="edit-duration" type="number" min="5" max="1440" step="5"/>
+      </div>
+    </div>
+
+    <label class="field-label">Location</label>
+    <input class="field-input" id="edit-location" type="text"/>
+
+    <div class="field-row">
+      <div class="field-col">
+        <label class="field-label">Category</label>
+        <select class="field-input" id="edit-category">
+          <option value="all">All</option>
+          <option value="couple">Couple</option>
+          <option value="bridesmaids">Bridesmaids</option>
+          <option value="groomsmen">Groomsmen</option>
+          <option value="family">Family</option>
+          <option value="vendors">Vendors</option>
+        </select>
+      </div>
+      <div class="field-col">
+        <label class="field-label">Section</label>
+        <select class="field-input" id="edit-section" onchange="onSectionChange()">
+          <option value="week">Week Before</option>
+          <option value="eve">Eve</option>
+          <option value="day">Wedding Day</option>
+          <option value="after">After</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="weekday-row" style="display:none">
+      <label class="field-label">Day of week</label>
+      <div class="weekday-pills" id="weekday-pills">
+        <button class="wd-pill" data-day="mon" onclick="selectWeekday(this)">Mon</button>
+        <button class="wd-pill" data-day="tue" onclick="selectWeekday(this)">Tue</button>
+        <button class="wd-pill" data-day="wed" onclick="selectWeekday(this)">Wed</button>
+        <button class="wd-pill" data-day="thu" onclick="selectWeekday(this)">Thu</button>
+        <button class="wd-pill" data-day="fri" onclick="selectWeekday(this)">Fri</button>
+      </div>
+    </div>
+
+    <label class="field-label">Description</label>
+    <textarea class="field-input" id="edit-desc" rows="3"></textarea>
+
+    <div class="field-check">
+      <input type="checkbox" id="edit-guest-visible"/>
+      <label for="edit-guest-visible">Visible to guests</label>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeEdit()">Cancel</button>
+      <button class="btn btn-primary" onclick="saveEdit()">Save changes</button>
+    </div>
+  </div>
+</div>
+
+<!-- Main content -->
+<div class="wrap">
+
+  <div class="guest-banner" id="guest-banner">
+    <div class="guest-banner-info">
+      <span style="font-size:18px">👁</span>
+      <div><strong>Guest View</strong><span> · read-only programme</span></div>
+    </div>
+    <button class="btn btn-admin" onclick="openPin()">Organiser Login</button>
+  </div>
+
+  <header>
+    <div class="flourish">✦ ✦ ✦</div>
+    <p class="header-sub" id="header-sub">Wedding Timeline</p>
+    <h1 class="couple">Oli & Lucy</h1>
+    <p class="header-date">18 July 2026 · St Mary and All Saints Church</p>
+    <div class="countdown" id="countdown">
+      <span class="num" id="countdown-num">–</span>
+      <span class="lbl">days to go</span>
+    </div>
+    <p class="guest-welcome" id="guest-welcome" style="display:none">
+      We are so glad you are joining us. Here is everything you need for our special day.
+    </p>
+  </header>
+
+  <!-- Organiser bar -->
+  <div class="org-bar" id="org-bar">
+    <div class="org-bar-label">✦ Organiser controls</div>
+    <div class="org-actions">
+      <button class="btn btn-green" onclick="openShare()">🔗 Share Guest Link</button>
+      <button class="btn btn-sm" onclick="previewGuest()">👁 Preview Guest View</button>
+      <button class="btn btn-sm" id="reset-btn" onclick="resetTimeline()">Reset to default</button>
+    </div>
+    <div id="reset-confirm" style="display:none;margin-top:8px;display:none;align-items:center;gap:8px;flex-wrap:wrap">
+      <span style="font-size:12px;color:#c07070;font-family:Jost,sans-serif">Reset all events to default?</span>
+      <button class="btn btn-sm" style="color:#c07070;border-color:#e0b8b8;background:#fde4e4" onclick="confirmReset()">Yes, reset</button>
+      <button class="btn btn-sm" onclick="cancelReset()">Keep</button>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs-wrap">
+    <div class="tabs" id="tabs"></div>
+  </div>
+
+  <!-- Filters -->
+  <div class="filters" id="filters"></div>
+
+  <!-- Count row -->
+  <div class="count-row">
+    <span class="event-count" id="event-count"></span>
+    <button class="btn btn-add" id="add-btn" onclick="addEvent()" style="display:none">+ Add event</button>
+  </div>
+
+  <!-- Timeline content -->
+  <div id="timeline-content"></div>
+
+  <!-- Guest CTA -->
+  <div class="guest-cta" id="guest-cta" style="display:none">
+    <div style="font-size:28px;margin-bottom:8px">💌</div>
+    <h4>See you on the day!</h4>
+    <p>If you have any questions, reach out to Oli or Lucy directly. We cannot wait to celebrate with you.</p>
+  </div>
+
+  <footer>
+    <div class="f-flourish">✦</div>
+    <p class="f-text">With love · Oli & Lucy · 18 July 2026</p>
+    <p class="f-sub" id="footer-sub">Tap ✏ on any event to edit it</p>
+  </footer>
+</div>
+
+<script>
+// ─── Data ──────────────────────────────────────────────────────────────────────
+const VENUE = "St Mary and All Saints Church";
+
+const DEFAULT_EVENTS = [
+  // Week before — each has a weekDay field
+  { id:"w1",  day:"week", weekDay:"mon", time:"08:00", duration:480, title:"Marquee Delivery & Frame Build",      category:"vendors",     location:"Garden / Field",        description:"Marquee company arrives to deliver and erect the frame. Ensure clear vehicle access.",                          guestVisible:false },
+  { id:"w2",  day:"week", weekDay:"mon", time:"13:00", duration:240, title:"Marquee Lining & Flooring",           category:"vendors",     location:"Marquee",               description:"Lining team installs interior draping and wooden dance floor panels.",                                          guestVisible:false },
+  { id:"w3",  day:"week", weekDay:"tue", time:"09:00", duration:240, title:"Electrical & Lighting Rig",           category:"vendors",     location:"Marquee",               description:"Electrician runs power supply and installs festoon and fairy lighting throughout the marquee.",               guestVisible:false },
+  { id:"w4",  day:"week", weekDay:"tue", time:"09:00", duration:180, title:"Furniture Delivery",                  category:"vendors",     location:"Marquee",               description:"Tables, chairs, and bar furniture delivered and positioned per the floor plan.",                              guestVisible:false },
+  { id:"w5",  day:"week", weekDay:"tue", time:"14:00", duration:120, title:"Bar Setup & Stock Delivery",          category:"vendors",     location:"Marquee / Bar Area",    description:"Bar supplier delivers and stocks the bar. Ice machine and refrigeration to be confirmed operational.",       guestVisible:false },
+  { id:"w6",  day:"week", weekDay:"wed", time:"09:00", duration:240, title:"Audio / Visual & Band Rig",           category:"vendors",     location:"Marquee",               description:"Sound engineer and band set up PA system, monitor mix, and stage backline. Full sound check before leaving.", guestVisible:false },
+  { id:"w7",  day:"week", weekDay:"wed", time:"11:00", duration:120, title:"Catering Kitchen Setup",              category:"vendors",     location:"Catering Tent",         description:"Caterers install equipment. Gas, power, and water connections to be signed off.",                             guestVisible:false },
+  { id:"w8",  day:"week", weekDay:"thu", time:"09:00", duration:180, title:"Florist Site Visit & Prep",           category:"vendors",     location:"Marquee & Church",      description:"Lead florist measures up and prepares on-site installations. Confirm fresh flower delivery slots.",           guestVisible:false },
+  { id:"w9",  day:"week", weekDay:"thu", time:"14:00", duration:60,  title:"Table Linen & Crockery Delivery",    category:"vendors",     location:"Marquee",               description:"Linen and hire company deliver tablecloths, napkins, crockery, glassware, and cutlery.",                    guestVisible:false },
+  { id:"w10", day:"week", weekDay:"thu", time:"10:00", duration:120, title:"Table Plan & Stationery Setup",       category:"family",      location:"Marquee",               description:"Family helpers arrange escort cards, menus, and order of service booklets.",                                guestVisible:false },
+  { id:"w11", day:"week", weekDay:"fri", time:"10:00", duration:120, title:"Fresh Flower Delivery & Arrangements",category:"vendors",     location:"Marquee & Church",      description:"Florist arrives with all fresh flowers. Church arrangements, marquee centrepieces, and bouquets completed.", guestVisible:false },
+  { id:"w12", day:"week", weekDay:"fri", time:"15:00", duration:60,  title:"Final Venue Walkthrough",             category:"couple",      location:"Marquee & Church",      description:"Oli & Lucy walk the full venue with the wedding coordinator. Confirm layout and timings.",                   guestVisible:false },
+  // Eve
+  { id:"e1",  day:"eve",  weekDay:null,  time:"14:00", duration:60,  title:"Hair & Make-up Trial",                category:"bridesmaids", location:"Salon / Home",          description:"Final run-through for bridesmaids hair and make-up. Confirm running order for wedding morning.",             guestVisible:true  },
+  { id:"e2",  day:"eve",  weekDay:null,  time:"17:00", duration:90,  title:"Rehearsal Ceremony",                  category:"all",         location:VENUE,                   description:"Full run-through with the officiant. Confirm processional and recessional order.",                            guestVisible:true  },
+  { id:"e3",  day:"eve",  weekDay:null,  time:"19:30", duration:180, title:"Rehearsal Dinner",                    category:"family",      location:"TBC",                   description:"Intimate dinner for immediate family and wedding party. Early night encouraged!",                             guestVisible:true  },
+  { id:"e4",  day:"eve",  weekDay:null,  time:"22:00", duration:30,  title:"Groom's Last Night Toast",            category:"groomsmen",   location:"Hotel Bar",             description:"Quick whisky toast with the groomsmen. Early night mandatory!",                                              guestVisible:false },
+  // Wedding Day
+  { id:"d1",  day:"day",  weekDay:null,  time:"07:00", duration:30,  title:"Bridal Breakfast",                    category:"bridesmaids", location:"Bridal Suite",          description:"Champagne and pastries. All bridesmaids arrive for getting ready.",                                           guestVisible:false },
+  { id:"d2",  day:"day",  weekDay:null,  time:"07:30", duration:270, title:"Hair & Make-up",                      category:"bridesmaids", location:"Bridal Suite",          description:"Lead stylist and assistants. Order: MOH, BM1, BM2, BM3, Bride last in chair.",                               guestVisible:false },
+  { id:"d3",  day:"day",  weekDay:null,  time:"08:00", duration:60,  title:"Groom's Getting Ready",               category:"groomsmen",   location:"Room / Home",           description:"Suits pressed and ready by 07:30. Photographer joins at 08:30.",                                              guestVisible:false },
+  { id:"d4",  day:"day",  weekDay:null,  time:"09:00", duration:60,  title:"Buttonholes & Bouquets Collected",    category:"vendors",     location:"Bridal Suite",          description:"Florist delivers all buttonholes and bouquets. Check all pieces present.",                                   guestVisible:false },
+  { id:"d5",  day:"day",  weekDay:null,  time:"09:30", duration:30,  title:"Photographer Arrives",                category:"vendors",     location:"Bridal Suite",          description:"Getting-ready shots with bride and bridesmaids. Second shooter covers groom simultaneously.",                guestVisible:false },
+  { id:"d6",  day:"day",  weekDay:null,  time:"10:00", duration:30,  title:"Videographer Arrives",                category:"vendors",     location:VENUE,                   description:"Sets up at the church ahead of guests arriving.",                                                             guestVisible:false },
+  { id:"d7",  day:"day",  weekDay:null,  time:"10:30", duration:60,  title:"Guests Arrive & Take Seats",          category:"family",      location:VENUE,                   description:"Ushers greet guests. Lucy's family left, Oli's family right. Order of service handed out.",                  guestVisible:true  },
+  { id:"d8",  day:"day",  weekDay:null,  time:"11:30", duration:60,  title:"Ceremony",                            category:"couple",      location:VENUE,                   description:"Please be seated by 11:20. Ceremony begins at 11:30. Confetti permitted outside the church gates after.",    guestVisible:true  },
+  { id:"d9",  day:"day",  weekDay:null,  time:"12:30", duration:75,  title:"Drinks Reception & Canapes",          category:"all",         location:"Marquee Gardens",       description:"Prosecco, soft drinks, and canapes on the lawn. String quartet plays.",                                       guestVisible:true  },
+  { id:"d10", day:"day",  weekDay:null,  time:"12:30", duration:45,  title:"Couple Portrait Session",             category:"couple",      location:"Grounds",               description:"Private portrait session with the photographer. We will be back shortly!",                                   guestVisible:true  },
+  { id:"d11", day:"day",  weekDay:null,  time:"13:45", duration:15,  title:"Call to Dining",                      category:"all",         location:"Marquee Entrance",      description:"Guests invited into the marquee and directed to their seats via the escort card table.",                    guestVisible:true  },
+  { id:"d12", day:"day",  weekDay:null,  time:"14:00", duration:30,  title:"Wedding Breakfast - Starter",         category:"all",         location:"Marquee",               description:"Starter served. Welcome drinks poured.",                                                                      guestVisible:true  },
+  { id:"d13", day:"day",  weekDay:null,  time:"14:30", duration:60,  title:"Wedding Breakfast - Main",            category:"all",         location:"Marquee",               description:"Main course. Speeches to follow immediately after mains are cleared.",                                       guestVisible:true  },
+  { id:"d14", day:"day",  weekDay:null,  time:"15:30", duration:40,  title:"Speeches",                            category:"family",      location:"Marquee",               description:"Father of the Bride, Best Man, then Groom. Please charge your glasses!",                                     guestVisible:true  },
+  { id:"d15", day:"day",  weekDay:null,  time:"16:10", duration:30,  title:"Wedding Breakfast - Dessert",         category:"all",         location:"Marquee",               description:"Dessert served.",                                                                                             guestVisible:true  },
+  { id:"d16", day:"day",  weekDay:null,  time:"16:40", duration:20,  title:"Cake Cutting",                        category:"couple",      location:"Marquee",               description:"Gather round, do not miss it! DJ to cue their song.",                                                        guestVisible:true  },
+  { id:"d17", day:"day",  weekDay:null,  time:"17:00", duration:60,  title:"Evening Guests Arrive",               category:"all",         location:"Marquee",               description:"Evening invites join the party. Evening buffet and bar now open.",                                           guestVisible:true  },
+  { id:"d18", day:"day",  weekDay:null,  time:"18:00", duration:240, title:"Evening Reception & Dancing",         category:"all",         location:"Marquee",               description:"Band plays two 45-minute sets. DJ continues from 22:00. Dance floor is all yours!",                         guestVisible:true  },
+  { id:"d19", day:"day",  weekDay:null,  time:"23:00", duration:30,  title:"Carriages",                           category:"all",         location:"Main Entrance",         description:"Taxis pre-booked for all guests. Collect your favours on the way out. Safe travels!",                       guestVisible:true  },
+  // After
+  { id:"a1",  day:"after",weekDay:null,  time:"10:00", duration:30,  title:"Marquee Teardown Begins",             category:"vendors",     location:"Marquee",               description:"Marquee company arrives to begin striking the structure. Furniture and linen collected.",                    guestVisible:false },
+  { id:"a2",  day:"after",weekDay:null,  time:"11:00", duration:120, title:"Morning After Brunch",                category:"family",      location:"TBC",                   description:"Casual brunch for close family and wedding party. Come as you are! Gift opening over coffee.",              guestVisible:true  },
+  { id:"a3",  day:"after",weekDay:null,  time:"13:00", duration:30,  title:"Bouquet Preservation Drop-off",       category:"vendors",     location:"Florist / Studio",      description:"Bridal bouquet to be dropped off by 13:00 for preservation.",                                               guestVisible:false },
+
+  // ── From Lucy's planning doc ─────────────────────────────────────────────────
+  { id:"doc_w1", day:"week", weekDay:"mon", time:"08:00", duration:60,  title:"REMINDER: Weekend Rehearsal",            category:"vendors",     location:"Cott Street",          description:"Rehearsal was Sunday 12 Jul. Confirm PA and music system checked and working before week begins.",         guestVisible:false },
+  { id:"doc_w2", day:"week", weekDay:"mon", time:"10:00", duration:60,  title:"Toilet Block Delivery",                  category:"vendors",     location:"Site",                 description:"Portable toilet block delivered and positioned. Confirm connection requirements and signage.",            guestVisible:false },
+  { id:"doc_w3", day:"week", weekDay:"mon", time:"14:00", duration:60,  title:"Fridge Delivery",                        category:"vendors",     location:"Kitchen / Marquee",    description:"Fridges delivered. Needed for: wedding cake, bouquets, white and rose wine.",                           guestVisible:false },
+  { id:"doc_w4", day:"week", weekDay:"mon", time:"10:00", duration:120, title:"Marquee Prep: Confetti & Decor",         category:"family",      location:"Marquee",              description:"Fill confetti baskets. Assemble table signs. Add ivy and greenery to marquee. Set up tables.",            guestVisible:false },
+  { id:"doc_w5", day:"week", weekDay:"thu", time:"09:00", duration:240, title:"Make DIY Flowers",                       category:"bridesmaids", location:"Home",                 description:"Make 2x flower girl headbands and 1x junior bridesmaid posy. Keep finished flowers in fridge.",           guestVisible:false },
+  { id:"doc_w6", day:"week", weekDay:"thu", time:"10:00", duration:120, title:"Wedding Cake: Defrost & Crumb Coat",     category:"vendors",     location:"Kitchen",              description:"Defrost wedding cake layers and apply crumb coat. Return to fridge.",                                     guestVisible:false },
+  { id:"doc_w7", day:"week", weekDay:"thu", time:"16:00", duration:60,  title:"Lucy: Spray Tan",                        category:"couple",      location:"TBC",                  description:"Pre-wedding spray tan appointment.",                                                                       guestVisible:false },
+  { id:"doc_e1", day:"eve",  weekDay:null,  time:"08:00", duration:60,  title:"Collect All Flowers from Florist",       category:"vendors",     location:"Florist",              description:"Collect: 1x bridal bouquet, 5x bridesmaid bouquets, 12x buttonholes. Keep in fridge on return.",        guestVisible:false },
+  { id:"doc_e2", day:"eve",  weekDay:null,  time:"09:00", duration:180, title:"Church Setup: Flowers & Decor",          category:"family",      location:"St Mary and All Saints Church", description:"Pew ends on 8x wooden pews and 4x chairs at front. Milk churns at entrance. Pedestal flowers at front. Confetti and flower girl baskets at entrance. Leave order of service.", guestVisible:false },
+  { id:"doc_e3", day:"eve",  weekDay:null,  time:"09:00", duration:60,  title:"Ice Wedding Cake",                       category:"vendors",     location:"Kitchen",              description:"Apply final icing to wedding cake. Return to fridge until Saturday.",                                     guestVisible:false },
+  { id:"doc_e4", day:"eve",  weekDay:null,  time:"10:00", duration:120, title:"Prep Bread, Olive & Pudding Boards",     category:"vendors",     location:"Kitchen",              description:"Set up 16x bread and olive boards, clingfilm and label. Set up pudding boards, clingfilm and label.",    guestVisible:false },
+  { id:"doc_e5", day:"eve",  weekDay:null,  time:"09:00", duration:60,  title:"Road & Parking Signs",                   category:"family",      location:"Cott Street / Church", description:"Place signs: bottom of Cott Street x2, outside house x1, parking x1. Reserve parking space at church.", guestVisible:false },
+  { id:"doc_e6", day:"eve",  weekDay:null,  time:"11:00", duration:60,  title:"Clean Land Rover",                       category:"family",      location:"Home",                 description:"Clean inside and outside of Land Rover. Ribbon goes on Saturday morning.",                               guestVisible:false },
+  { id:"doc_e7", day:"eve",  weekDay:null,  time:"13:00", duration:120, title:"Table Setup: Place Cards, Menus & Numbers", category:"family",   location:"Marquee",              description:"If weather ok: put out place cards, menus and table numbers. Set up bud vases on all tables.",            guestVisible:false },
+  { id:"doc_e8", day:"eve",  weekDay:null,  time:"15:00", duration:60,  title:"Lucy: Check In to Airbnb",               category:"couple",      location:"Airbnb",               description:"Lucy checks in to Airbnb ahead of the wedding morning.",                                                  guestVisible:false },
+  { id:"doc_d1", day:"day",  weekDay:null,  time:"07:00", duration:30,  title:"Add Ribbon to Land Rover",               category:"groomsmen",   location:"Home",                 description:"Tie ribbon to the Land Rover ready for the couple post-ceremony.",                                       guestVisible:false },
+  { id:"doc_d2", day:"day",  weekDay:null,  time:"08:00", duration:30,  title:"Church Morning Check",                   category:"family",      location:"St Mary and All Saints Church", description:"Place milk churns outside church entrance. Check flowers inside are ok. Confirm PA and lighting working.", guestVisible:false },
+  { id:"doc_d3", day:"day",  weekDay:null,  time:"08:30", duration:20,  title:"Pack Champagne Cool Bag",                category:"family",      location:"Home",                 description:"Half bottle of champagne and glasses for Oli and Lucy post-ceremony. Place in car before leaving.",      guestVisible:false },
+  { id:"doc_d4", day:"day",  weekDay:null,  time:"09:00", duration:30,  title:"Final Table Check & Bud Vases",          category:"family",      location:"Marquee",              description:"Check wedding cake. If weather has turned: put out place cards, menus and table numbers. Put out all bud vases.", guestVisible:false },
+  { id:"doc_d5", day:"day",  weekDay:null,  time:"11:15", duration:15,  title:"Bridal Party Arrival Briefing",          category:"bridesmaids", location:"Church Entrance",      description:"Order: Bodhi, Nellie, Martha, Niamh, Meg, Beth, Verity, Kath, Lucy and Dad. Kath checks train and veil. Polly and Dad outside. Aisling/Sam with flower girls. Meet Jill outside.", guestVisible:false },
+  { id:"doc_d6", day:"day",  weekDay:null,  time:"12:00", duration:30,  title:"String Quartet Arrives",                 category:"vendors",     location:"Garden / Patio",       description:"String quartet sets up for drinks reception. Confirm shade and rain backup location.",                    guestVisible:false },
+  { id:"doc_d7", day:"day",  weekDay:null,  time:"20:00", duration:60,  title:"Pizza Arrives: Evening Food",            category:"vendors",     location:"Marquee / Garden",     description:"Pizza vendor arrives for evening guests. Confirm setup area and parking in advance.",                     guestVisible:true  },
+
+];
+
+const CATS = {
+  all:        {label:"All",          color:"#a89bb0", bg:"#f3f0f5", dot:"#a89bb0"},
+  couple:     {label:"Couple",       color:"#c97b84", bg:"#fdf0f1", dot:"#c97b84"},
+  bridesmaids:{label:"Bridesmaids",  color:"#b07bbf", bg:"#f7eef9", dot:"#b07bbf"},
+  groomsmen:  {label:"Groomsmen",    color:"#6e9ec5", bg:"#edf4fb", dot:"#6e9ec5"},
+  family:     {label:"Family",       color:"#6bab8a", bg:"#edf7f2", dot:"#6bab8a"},
+  vendors:    {label:"Vendors",      color:"#c8a86b", bg:"#fdf6ec", dot:"#c8a86b"},
+};
+const GUEST_CATS = ["all","couple","bridesmaids","groomsmen","family"];
+const WEEK_DAYS = [
+  {id:"mon",label:"Monday",   date:"Mon 13 Jul"},
+  {id:"tue",label:"Tuesday",  date:"Tue 14 Jul"},
+  {id:"wed",label:"Wednesday",date:"Wed 15 Jul"},
+  {id:"thu",label:"Thursday", date:"Thu 16 Jul"},
+  {id:"fri",label:"Friday",   date:"Fri 17 Jul"},
+];
+const TABS = [
+  {id:"week",  label:"Week Before",  sub:"Setup & Prep"},
+  {id:"eve",   label:"Eve",          sub:"Rehearsal & Prep"},
+  {id:"day",   label:"Wedding Day",  sub:"Sat 18 Jul"},
+  {id:"after", label:"After",        sub:"Sun 19 Jul"},
+  {id:"all",   label:"All Events",   sub:"Full timeline"},
+];
+const PIN = "2026";
+const STORAGE_KEY = "wtl_ol_html_v1";
+
+// ─── State ─────────────────────────────────────────────────────────────────────
+let events = loadEvents();
+let activeTab = "day";
+let activeCat = "all";
+let guestMode = window.location.hash === "#guest";
+let editingId = null;
+
+// ─── Supabase ──────────────────────────────────────────────────────────────────
+const SUPABASE_URL = "https://eojuflgaayyziodmziae.supabase.co";
+const SUPABASE_KEY = "sb_publishable_DPZqKLpD9n7mlnS_GTjrCg_CPIu_hnV";
+const API = SUPABASE_URL + "/rest/v1/timeline";
+const HDRS = {
+  "apikey": SUPABASE_KEY,
+  "Authorization": "Bearer " + SUPABASE_KEY,
+  "Content-Type": "application/json"
+};
+
+async function loadFromCloud() {
+  try {
+    const r = await fetch(API + "?id=eq.1&select=events", { headers: HDRS });
+    const d = await r.json();
+    if (d && d[0] && Array.isArray(d[0].events) && d[0].events.length > 0) {
+      return d[0].events;
+    }
+  } catch(e) { console.warn("Cloud load failed:", e); }
+  return null;
+}
+
+async function saveToCloud(evts) {
+  try {
+    const r = await fetch(API + "?id=eq.1", {
+      method: "PATCH",
+      headers: { ...HDRS, "Prefer": "return=minimal" },
+      body: JSON.stringify({ events: evts, updated_at: new Date().toISOString() })
+    });
+    if (!r.ok) { showSyncDot("error"); return; }
+  } catch(e) { showSyncDot("error"); }
+}
+
+// ─── Persistence ───────────────────────────────────────────────────────────────
+function loadEvents() {
+  try {
+    const s = localStorage.getItem(STORAGE_KEY);
+    if (s) return JSON.parse(s);
+  } catch(e) {}
+  return DEFAULT_EVENTS.map(e => ({...e}));
+}
+function saveEvents() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(events)); } catch(e) {}
+  showSyncDot("saving");
+  clearTimeout(window._syncTimer);
+  window._syncTimer = setTimeout(() => {
+    saveToCloud(events).then(() => showSyncDot("saved"));
+  }, 600);
+}
+
+// ─── Helpers ───────────────────────────────────────────────────────────────────
+function parseTime(t) {
+  const [h,m] = t.split(":").map(Number);
+  return h * 60 + m;
+}
+function fmt(mins) {
+  const h = Math.floor(mins/60), m = mins % 60;
+  const ap = h >= 12 ? "pm" : "am";
+  const h12 = h === 0 ? 12 : h > 12 ? h - 12 : h;
+  return h12 + ":" + String(m).padStart(2,"0") + ap;
+}
+function endTime(ev) { return fmt(parseTime(ev.time) + ev.duration); }
+function durLabel(d) { return d >= 60 ? Math.floor(d/60)+"h"+(d%60>0?" "+d%60+"m":"") : d+"m"; }
+function esc(s) {
+  return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
+// ─── Toast ─────────────────────────────────────────────────────────────────────
+let toastTimer;
+function toast(msg, type="ok") {
+  const el = document.getElementById("toast");
+  el.textContent = msg;
+  el.className = type;
+  el.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove("show"), 3000);
+}
+
+// ─── Countdown ─────────────────────────────────────────────────────────────────
+function updateCountdown() {
+  const diff = Math.max(0, Math.floor((new Date("2026-07-18T12:00:00") - new Date()) / 86400000));
+  const el = document.getElementById("countdown");
+  if (diff > 0) {
+    document.getElementById("countdown-num").textContent = diff;
+    el.style.display = "inline-flex";
+  } else {
+    el.style.display = "none";
+  }
+}
+
+// ─── Guest / Organiser mode ────────────────────────────────────────────────────
+function applyMode() {
+  const guest = guestMode;
+  document.getElementById("guest-banner").classList.toggle("visible", guest);
+  document.getElementById("org-bar").style.display = guest ? "none" : "block";
+  document.getElementById("add-btn").style.display = guest ? "none" : "flex";
+  document.getElementById("guest-cta").style.display = guest ? "block" : "none";
+  document.getElementById("header-sub").textContent = guest ? "You're invited" : "Wedding Timeline";
+  document.getElementById("guest-welcome").style.display = guest ? "block" : "none";
+  document.getElementById("footer-sub").style.display = guest ? "none" : "block";
+  // Remove week tab for guests
+  render();
+}
+
+// ─── PIN ───────────────────────────────────────────────────────────────────────
+function openPin() {
+  document.getElementById("pin-input").value = "";
+  document.getElementById("pin-error").textContent = "";
+  document.getElementById("pin-modal").classList.add("open");
+  setTimeout(() => document.getElementById("pin-input").focus(), 100);
+}
+function closePin() {
+  document.getElementById("pin-modal").classList.remove("open");
+}
+function submitPin() {
+  const val = document.getElementById("pin-input").value;
+  if (val === PIN) {
+    closePin();
+    guestMode = false;
+    window.location.hash = "";
+    applyMode();
+    toast("Welcome back ✦");
+  } else {
+    document.getElementById("pin-error").textContent = "Incorrect PIN";
+    document.getElementById("pin-input").value = "";
+    setTimeout(() => { document.getElementById("pin-error").textContent = ""; }, 1400);
+  }
+}
+document.getElementById("pin-input").addEventListener("keydown", e => { if(e.key==="Enter") submitPin(); });
+
+// ─── Share ─────────────────────────────────────────────────────────────────────
+function openShare() {
+  const link = window.location.href.replace(/#.*/, "") + "#guest";
+  document.getElementById("share-url-text").value = link;
+  document.getElementById("share-modal").classList.add("open");
+}
+function closeShare() {
+  document.getElementById("share-modal").classList.remove("open");
+}
+function copyShareLink() {
+  const link = window.location.href.replace(/#.*/, "") + "#guest";
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(link)
+      .then(() => { toast("Guest link copied! 🔗"); closeShare(); })
+      .catch(() => { toast("Press & hold the link above to copy"); });
+  } else {
+    const ta = document.getElementById("share-url-text");
+    ta.select();
+    toast("Press & hold the link above to copy");
+  }
+}
+function previewGuest() {
+  guestMode = true;
+  window.location.hash = "guest";
+  applyMode();
+}
+
+// ─── Reset ─────────────────────────────────────────────────────────────────────
+function resetTimeline() {
+  document.getElementById("reset-btn").style.display = "none";
+  const rc = document.getElementById("reset-confirm");
+  rc.style.display = "flex";
+}
+function confirmReset() {
+  events = DEFAULT_EVENTS.map(e => ({...e}));
+  saveEvents();
+  cancelReset();
+  render();
+  toast("Reset to default");
+}
+function cancelReset() {
+  document.getElementById("reset-confirm").style.display = "none";
+  document.getElementById("reset-btn").style.display = "inline-flex";
+}
+
+// ─── Add event ─────────────────────────────────────────────────────────────────
+function addEvent() {
+  const wd = activeTab === "week" ? "mon" : null;
+  const day = activeTab === "all" ? "day" : activeTab;
+  const ev = {
+    id: "new_" + Date.now(),
+    day, weekDay: wd,
+    time: "10:00", duration: 60,
+    title: "New Event", category: "vendors",
+    location: "", description: "", guestVisible: false
+  };
+  events.push(ev);
+  saveEvents();
+  openEdit(ev.id);
+  render();
+}
+
+// ─── Edit modal ────────────────────────────────────────────────────────────────
+function openEdit(id) {
+  const ev = events.find(e => e.id === id);
+  if (!ev) return;
+  editingId = id;
+  document.getElementById("edit-id").value = id;
+  document.getElementById("edit-title").value = ev.title || "";
+  document.getElementById("edit-time").value = ev.time || "10:00";
+  document.getElementById("edit-duration").value = ev.duration || 60;
+  document.getElementById("edit-location").value = ev.location || "";
+  document.getElementById("edit-category").value = ev.category || "all";
+  document.getElementById("edit-section").value = ev.day || "day";
+  document.getElementById("edit-desc").value = ev.description || "";
+  document.getElementById("edit-guest-visible").checked = !!ev.guestVisible;
+
+  // Weekday pills
+  const wr = document.getElementById("weekday-row");
+  wr.style.display = ev.day === "week" ? "block" : "none";
+  document.querySelectorAll(".wd-pill").forEach(p => {
+    p.classList.toggle("active", p.dataset.day === (ev.weekDay || "mon"));
+  });
+
+  document.getElementById("edit-modal").classList.add("open");
+}
+
+function closeEdit() {
+  document.getElementById("edit-modal").classList.remove("open");
+  editingId = null;
+}
+
+function onSectionChange() {
+  const sec = document.getElementById("edit-section").value;
+  document.getElementById("weekday-row").style.display = sec === "week" ? "block" : "none";
+}
+
+function selectWeekday(btn) {
+  document.querySelectorAll(".wd-pill").forEach(p => p.classList.remove("active"));
+  btn.classList.add("active");
+}
+
+function saveEdit() {
+  const id = document.getElementById("edit-id").value;
+  const idx = events.findIndex(e => e.id === id);
+  if (idx === -1) { closeEdit(); return; }
+  const activeWd = document.querySelector(".wd-pill.active");
+  const sec = document.getElementById("edit-section").value;
+  events[idx] = {
+    ...events[idx],
+    title:        document.getElementById("edit-title").value,
+    time:         document.getElementById("edit-time").value,
+    duration:     parseInt(document.getElementById("edit-duration").value) || 60,
+    location:     document.getElementById("edit-location").value,
+    category:     document.getElementById("edit-category").value,
+    day:          sec,
+    weekDay:      sec === "week" ? (activeWd ? activeWd.dataset.day : "mon") : null,
+    description:  document.getElementById("edit-desc").value,
+    guestVisible: document.getElementById("edit-guest-visible").checked,
+  };
+  saveEvents();
+  closeEdit();
+  render();
+  toast("Saved");
+}
+
+// ─── DELETE — plain and simple ─────────────────────────────────────────────────
+function deleteCurrentEvent() {
+  const id = document.getElementById("edit-id").value;
+  events = events.filter(e => e.id !== id);
+  saveEvents();
+  closeEdit();
+  render();
+  toast("Event deleted");
+}
+
+// ─── Tabs ──────────────────────────────────────────────────────────────────────
+function renderTabs() {
+  const tabs = guestMode ? TABS.filter(t => t.id !== "week") : TABS;
+  document.getElementById("tabs").innerHTML = tabs.map(t =>
+    `<div class="tab${t.id===activeTab?" active":""}" onclick="setTab('${t.id}')">
+      <span class="tab-label">${t.label}</span>
+      <span class="tab-sub">${t.sub}</span>
+    </div>`
+  ).join("");
+}
+function setTab(id) {
+  activeTab = id;
+  activeCat = "all";
+  render();
+}
+
+// ─── Filters ──────────────────────────────────────────────────────────────────
+function renderFilters() {
+  if (activeTab === "all") { document.getElementById("filters").innerHTML = ""; return; }
+  const keys = guestMode ? GUEST_CATS : Object.keys(CATS);
+  document.getElementById("filters").innerHTML = keys.map(k => {
+    const c = CATS[k], active = activeCat === k;
+    return `<button class="filter-pill" onclick="setCat('${k}')"
+      style="background:${active?c.color:c.bg};color:${active?"#fff":c.color};border-color:${c.color};
+             font-weight:${active?600:400};box-shadow:${active?"0 2px 6px "+c.color+"44":"none"}">
+      <span class="filter-dot" style="background:${active?"rgba(255,255,255,.5)":c.dot}"></span>
+      ${c.label}
+    </button>`;
+  }).join("");
+}
+function setCat(k) { activeCat = k; render(); }
+
+// ─── Event card HTML ───────────────────────────────────────────────────────────
+function cardHTML(ev, showConnector, showEdit) {
+  const c = CATS[ev.category] || CATS.all;
+  const editBtnHTML = showEdit
+    ? `<button class="edit-btn" onclick="openEdit('${esc(ev.id)}')"
+         style="border-color:${c.color}44;color:${c.color};background:${c.bg}" aria-label="Edit">✏</button>`
+    : "";
+  const locHTML = ev.location
+    ? `<div class="card-loc"><span>📍</span>${esc(ev.location)}</div>` : "";
+  const descHTML = ev.description
+    ? `<div class="card-desc">${esc(ev.description)}</div>` : "";
+  const hiddenHTML = (!guestMode && !ev.guestVisible)
+    ? `<span class="hidden-pill">Hidden from guests</span>` : "";
+
+  return `
+  <div class="tl-row">
+    <div class="time-col">
+      <span class="time-start">${fmt(parseTime(ev.time))}</span>
+      <span class="time-end">–${endTime(ev)}</span>
+    </div>
+    <div class="connector">
+      <div class="tl-dot" style="background:${c.dot};box-shadow:0 0 0 3px ${c.bg}"></div>
+      ${showConnector ? '<div class="tl-line"></div>' : ""}
+    </div>
+    <div class="card" style="border-left-color:${c.dot}">
+      <div class="card-top">
+        <div class="card-left">
+          <span class="cat-badge" style="background:${c.bg};color:${c.color};border-color:${c.color}55">${c.label}</span>
+          <div class="card-title">${esc(ev.title)}</div>
+        </div>
+        ${editBtnHTML}
+      </div>
+      ${locHTML}
+      ${descHTML}
+      <div class="card-pills">
+        <span class="dur-pill">${durLabel(ev.duration)}</span>
+        ${hiddenHTML}
+      </div>
+    </div>
+  </div>`;
+}
+
+// ─── Filter helpers ────────────────────────────────────────────────────────────
+function filterEvents(evs) {
+  if (guestMode) {
+    evs = evs.filter(e => e.guestVisible !== false && GUEST_CATS.includes(e.category));
+  }
+  if (activeCat !== "all") evs = evs.filter(e => e.category === activeCat);
+  return evs.sort((a,b) => parseTime(a.time) - parseTime(b.time));
+}
+
+// ─── Render ────────────────────────────────────────────────────────────────────
+function render() {
+  renderTabs();
+  renderFilters();
+  const showEdit = !guestMode;
+  let html = "";
+  let count = 0;
+
+  if (activeTab === "week") {
+    // Split by weekday
+    WEEK_DAYS.forEach(wd => {
+      let dayEvs = filterEvents(events.filter(e => e.day === "week" && e.weekDay === wd.id));
+      html += `<div class="day-header">
+        <div><span class="dh-label">${wd.label}</span><span class="dh-date">${wd.date}</span></div>
+        <span class="dh-count">${dayEvs.length} event${dayEvs.length!==1?"s":""}</span>
+      </div>`;
+      if (dayEvs.length === 0) {
+        html += `<p style="font-size:13px;color:#c0b0b8;font-style:italic;font-family:Jost,sans-serif;padding:6px 0 10px 20px">Nothing scheduled yet.</p>`;
+      } else {
+        dayEvs.forEach((ev,i) => { html += cardHTML(ev, i < dayEvs.length-1, showEdit); });
+        count += dayEvs.length;
+      }
+    });
+
+  } else if (activeTab === "all") {
+    // Full collated view
+    const sections = [
+      {key:"week",  label:"The Week Before", sub:"Mon 13 – Fri 17 Jul 2026", color:"#c8a86b"},
+      {key:"eve",   label:"The Eve",          sub:"Friday 17 July 2026",      color:"#b07bbf"},
+      {key:"day",   label:"Wedding Day",       sub:"Saturday 18 July 2026",    color:"#c97b84"},
+      {key:"after", label:"The Day After",     sub:"Sunday 19 July 2026",      color:"#6bab8a"},
+    ];
+    const visibleSections = guestMode ? sections.filter(s => s.key !== "week") : sections;
+    visibleSections.forEach(sec => {
+      let secEvs = filterEvents(events.filter(e => e.day === sec.key));
+      if (sec.key === "week") {
+        // Check if any events exist at all
+        if (secEvs.length === 0) return;
+        html += `<div class="section-header">
+          <div class="section-bar" style="background:linear-gradient(to bottom,${sec.color},${sec.color}88)"></div>
+          <div><div class="section-title">${sec.label}</div><div class="section-sub">${sec.sub}</div></div>
+        </div>`;
+        WEEK_DAYS.forEach(wd => {
+          const wdEvs = secEvs.filter(e => e.weekDay === wd.id);
+          if (wdEvs.length === 0) return;
+          html += `<div class="week-day-sub"><div class="wds-bar"></div><span>${wd.label} · ${wd.date}</span></div>`;
+          wdEvs.forEach((ev,i) => { html += cardHTML(ev, i < wdEvs.length-1, showEdit); count++; });
+        });
+      } else {
+        if (secEvs.length === 0) return;
+        html += `<div class="section-header">
+          <div class="section-bar" style="background:linear-gradient(to bottom,${sec.color},${sec.color}88)"></div>
+          <div><div class="section-title">${sec.label}</div><div class="section-sub">${sec.sub}</div></div>
+        </div>`;
+        secEvs.forEach((ev,i) => { html += cardHTML(ev, i < secEvs.length-1, showEdit); count++; });
+      }
+    });
+
+  } else {
+    // Standard tab
+    let evs = filterEvents(events.filter(e => e.day === activeTab));
+    count = evs.length;
+    if (evs.length === 0) {
+      html = `<div class="empty">No events here yet.<br>${guestMode?"Try a different category.":"Tap + Add to create one."}</div>`;
+    } else {
+      evs.forEach((ev,i) => { html += cardHTML(ev, i < evs.length-1, showEdit); });
+    }
+  }
+
+  document.getElementById("timeline-content").innerHTML = html;
+
+  const tabName = TABS.find(t => t.id === activeTab)?.label || "";
+  const catName = activeCat !== "all" ? ` · ${CATS[activeCat]?.label}` : "";
+  document.getElementById("event-count").textContent =
+    count + " event" + (count!==1?"s":"") + " · " + tabName + catName + (guestMode?" · Guest view":"");
+
+  // Week banner
+  let wb = document.getElementById("week-banner-el");
+  if (activeTab === "week" && !guestMode) {
+    if (!wb) {
+      const el = document.createElement("div");
+      el.id = "week-banner-el";
+      el.className = "week-banner";
+      el.innerHTML = `<span style="font-size:20px">🏗️</span><div>
+        <strong>Logistics week — hidden from guests</strong>
+        <span>Tap ✏ on any event to edit it or change its day.</span></div>`;
+      document.getElementById("timeline-content").insertAdjacentElement("beforebegin", el);
+    }
+  } else if (wb) { wb.remove(); }
+}
+
+// ─── Sync dot ──────────────────────────────────────────────────────────────────
+function showSyncDot(state) {
+  const el = document.getElementById("sync-dot");
+  el.className = state;
+  const msgs = { saving:"⏳ Saving…", saved:"✓ Saved", error:"⚠ Save failed", hide:"" };
+  el.textContent = msgs[state] || "";
+  if (state === "saved") {
+    clearTimeout(window._hideSyncTimer);
+    window._hideSyncTimer = setTimeout(() => { el.className = "hide"; }, 2500);
+  }
+}
+
+// ─── Init ──────────────────────────────────────────────────────────────────────
+window.addEventListener("hashchange", () => {
+  guestMode = window.location.hash === "#guest";
+  applyMode();
+});
+
+updateCountdown();
+
+// Render immediately with local/default data so page always shows content
+applyMode();
+
+// Then load from cloud in background and silently update if newer data exists
+(async () => {
+  try {
+    const cloudEvs = await loadFromCloud();
+    if (cloudEvs && cloudEvs.length > 0) {
+      events = cloudEvs;
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(events)); } catch(e) {}
+      render(); // Re-render with cloud data
+    } else {
+      // First time on this device/domain — push defaults up to cloud
+      saveToCloud(events);
+    }
+  } catch(e) {
+    console.warn("Background cloud sync failed:", e);
+    // App already rendered with local data, nothing to do
+  }
+})();
+</script>
+</body>
+</html>
