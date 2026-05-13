@@ -587,11 +587,26 @@ async function saveToCloud(evts) {
   try {
     const r = await fetch(API + "?id=eq.1", {
       method: "PATCH",
-      headers: { ...HDRS, "Prefer": "return=minimal" },
-      body: JSON.stringify({ events: evts, updated_at: new Date().toISOString() })
+      headers: {
+        "apikey": SUPABASE_KEY,
+        "Authorization": "Bearer " + SUPABASE_KEY,
+        "Content-Type": "application/json",
+        "Prefer": "return=representation"
+      },
+      body: JSON.stringify({ events: evts })
     });
-    if (!r.ok) { showSyncDot("error"); return; }
-  } catch(e) { showSyncDot("error"); }
+    if (!r.ok) {
+      const err = await r.text();
+      console.error("Supabase save failed:", r.status, err);
+      showSyncDot("error");
+      return false;
+    }
+    return true;
+  } catch(e) {
+    console.error("Supabase save error:", e);
+    showSyncDot("error");
+    return false;
+  }
 }
 
 // ─── Persistence ───────────────────────────────────────────────────────────────
@@ -604,10 +619,11 @@ function loadEvents() {
 }
 function saveEvents() {
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify(events)); } catch(e) {}
+  window._lastLocalSave = Date.now();
   showSyncDot("saving");
   clearTimeout(window._syncTimer);
   window._syncTimer = setTimeout(() => {
-    saveToCloud(events).then(() => showSyncDot("saved"));
+    saveToCloud(events).then(() => showSyncDot("saved")).catch(() => showSyncDot("error"));
   }, 600);
 }
 
@@ -1029,16 +1045,19 @@ applyMode();
   try {
     const cloudEvs = await loadFromCloud();
     if (cloudEvs && cloudEvs.length > 0) {
-      events = cloudEvs;
-      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(events)); } catch(e) {}
-      render(); // Re-render with cloud data
+      // Only update if we haven't saved locally in the last 10 seconds
+      const timeSinceLocalSave = Date.now() - (window._lastLocalSave || 0);
+      if (timeSinceLocalSave > 10000) {
+        events = cloudEvs;
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(events)); } catch(e) {}
+        render();
+      }
     } else {
-      // First time on this device/domain — push defaults up to cloud
-      saveToCloud(events);
+      // First visit — push default events up to cloud
+      await saveToCloud(events);
     }
   } catch(e) {
     console.warn("Background cloud sync failed:", e);
-    // App already rendered with local data, nothing to do
   }
 })();
 </script>
